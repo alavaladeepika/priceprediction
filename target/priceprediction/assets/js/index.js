@@ -34,7 +34,7 @@ jQuery(document).ready(function($){
 	    	 'date': date,
 	    	 'time': time+":00",
 	    });
-		var url = 'http://localhost:8080/priceprediction/webapi/price/get_estimate';
+		var url = 'http://localhost:8001/priceprediction/webapi/price/get_estimate';
 	    $.ajax({
 		      type : 'POST',
 			  contentType : 'application/json',
