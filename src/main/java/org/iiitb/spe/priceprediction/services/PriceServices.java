@@ -23,7 +23,7 @@ public class PriceServices {
     @Consumes("application/json")
     public double get_estimate(RequestObject obj) throws FileNotFoundException, IOException, ParseException {
     	
-    	String path = "/usr/local/tomcat/webapps/priceprediction/WEB-INF/classes/org/iiitb/spe/priceprediction/saved_model.txt";
+    	String path = "/usr/local/tomcat/webapps/priceprediction/WEB-INF/classes/saved_model.txt";
         Model model = new Model(path);
         
         ArrayList<Double> test_case = new ArrayList<Double>();
