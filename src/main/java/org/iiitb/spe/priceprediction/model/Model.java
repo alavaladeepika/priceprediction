@@ -1,31 +1,38 @@
 package org.iiitb.spe.priceprediction.model;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Model {
-	private String filename;
+	private InputStream filename;
 
 	public Model() {
 		
 	}
-	public Model(String file) {
-		this.setFilename(file);
+	public Model(InputStream inputStream) {
+		this.setFilename(inputStream);
 	}
 	
-	public String getFilename() {
+	public InputStream getFilename() {
 		return filename;
 	}
-	public void setFilename(String filename) {
+	public void setFilename(InputStream filename) {
 		this.filename = filename;
 	}
 	
 	public ArrayList<Double> getModelWeights() throws FileNotFoundException, IOException {
 		
-		BufferedReader br = new BufferedReader(new FileReader(filename));
+		File file = new File(
+				getClass().getClassLoader().getResource("saved_model.txt").getFile()
+		);
+
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		
 		String line = br.readLine();
 		ArrayList<Double> weights = new ArrayList<Double>();
 		    
