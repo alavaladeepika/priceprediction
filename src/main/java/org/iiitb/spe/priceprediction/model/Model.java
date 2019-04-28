@@ -5,30 +5,29 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class Model {
-	private InputStream filename;
+	private String filename;
 
 	public Model() {
 		
 	}
-	public Model(InputStream inputStream) {
-		this.setFilename(inputStream);
+	public Model(String filename) {
+		this.setFilename(filename);
 	}
 	
-	public InputStream getFilename() {
+	public String getFilename() {
 		return filename;
 	}
-	public void setFilename(InputStream filename) {
+	public void setFilename(String filename) {
 		this.filename = filename;
 	}
 	
 	public ArrayList<Double> getModelWeights() throws FileNotFoundException, IOException {
 		
 		File file = new File(
-				getClass().getClassLoader().getResource("saved_model.txt").getFile()
+			getClass().getClassLoader().getResource(getFilename()).getFile()
 		);
 
 		BufferedReader br = new BufferedReader(new FileReader(file));

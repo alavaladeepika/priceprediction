@@ -2,7 +2,6 @@ package org.iiitb.spe.priceprediction.services;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,8 +23,7 @@ public class PriceServices {
     @Consumes("application/json")
     public double get_estimate(RequestObject obj) throws FileNotFoundException, IOException, ParseException {
     	
-    	
-    	Model model = new Model();
+    	Model model = new Model("saved_model.txt");
         
         ArrayList<Double> test_case = new ArrayList<Double>();
         test_case.add(obj.getPickup_longitude());
