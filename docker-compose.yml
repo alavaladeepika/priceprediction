@@ -3,7 +3,7 @@ version: '3'
 services:
        
    webapi:
-     image: project 
+     image: alavaladeepika/priceprediction:webappimg
      hostname: webapi
      ports:
        - "8081:8080"
