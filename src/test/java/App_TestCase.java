@@ -1,40 +1,42 @@
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
+/*import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.Test;*/
+import org.testng.Assert;		
+import org.testng.annotations.Test;	
+import org.testng.annotations.BeforeTest;	
+import org.testng.annotations.AfterTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class App_TestCase {
 	private static ChromeDriver driver;
 	WebElement element;
 
-	@BeforeClass
+	@BeforeTest
 	public static void openBrowser(){
-		WebDriverManager.firefoxdriver().setup();
-		WebDriver driver = new FirefoxDriver();
-		/*WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();*/
+//		WebDriverManager.firefoxdriver().setup();
+	//	WebDriver driver = new FirefoxDriver();
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
-	@Test	
+	/*@Test	
 	public void testWebsite() throws InterruptedException{
 	    System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
 	    driver.get("http://localhost:8081/priceprediction/index.html");
 	    System.out.println("----------"+driver.getTitle()+"----------");
 	    Assert.assertEquals("Price Prediction", driver.getTitle());
 	    System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
-	}
+	}*/
 	
-	/*@Test
+	@Test
 	public void testPrediction() throws InterruptedException {
 		System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
 		driver.get("http://localhost:8081/priceprediction/index.html");
@@ -51,5 +53,10 @@ public class App_TestCase {
 	    ((JavascriptExecutor)driver).executeScript("arguments[0].click();",element);
 	    
 	    System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
-	}*/
+	}
+	
+	/*@AfterTest
+	public void afterTest() {
+		driver.quit();			
+	}*/	
 }
