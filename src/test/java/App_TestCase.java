@@ -1,40 +1,37 @@
 import java.util.concurrent.TimeUnit;
-
-/*import org.junit.Assert;
+import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
-import org.junit.Test;*/
-import org.testng.Assert;		
-import org.testng.annotations.Test;	
-import org.testng.annotations.BeforeTest;	
-import org.testng.annotations.AfterTest;
+import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.chrome.ChromeOptions;
+import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class App_TestCase {
 	private static ChromeDriver driver;
 	WebElement element;
 
-	@BeforeTest
+	@BeforeClass
 	public static void openBrowser(){
-//		WebDriverManager.firefoxdriver().setup();
-	//	WebDriver driver = new FirefoxDriver();
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		ChromeOptions ChromeOptions = new ChromeOptions();
+		ChromeOptions.addArguments("--headless","--no-sandbox");
+		WebDriverManager.getInstance(CHROME).setup();
+		driver = new ChromeDriver(ChromeOptions);
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
-	/*@Test	
+	@Test	
 	public void testWebsite() throws InterruptedException{
 	    System.out.println("Starting test " + new Object(){}.getClass().getEnclosingMethod().getName());
 	    driver.get("http://localhost:8081/priceprediction/index.html");
 	    System.out.println("----------"+driver.getTitle()+"----------");
 	    Assert.assertEquals("Price Prediction", driver.getTitle());
 	    System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
-	}*/
+	}
 	
 	@Test
 	public void testPrediction() throws InterruptedException {
@@ -55,8 +52,8 @@ public class App_TestCase {
 	    System.out.println("Ending test " + new Object(){}.getClass().getEnclosingMethod().getName());
 	}
 	
-	/*@AfterTest
-	public void afterTest() {
+	@AfterClass
+	public static void afterTest() {
 		driver.quit();			
-	}*/	
+	}
 }
