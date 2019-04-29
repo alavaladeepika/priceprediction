@@ -2,6 +2,12 @@
 <html>
 <head>
 <title>Price Prediction</title>
+<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1549984893" />
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/clockpicker/0.0.7/bootstrap-clockpicker.min.css">
@@ -48,9 +54,14 @@
 		</div>
 	 </div>
 	 <button class="button" id='predict'>Predict</button><br>
+	 <div class="container"><div class="row" id="map" style="width: 60%; height: 300px; background: grey;" /></div></div>
 	 <div class="output_div"><h3>Estimated price : <i class="fa fa-usd price"></i> <label class="price" id="price">0</label></h3>
 	 </div>
 	</div>
+	<footer>
+	  <p>© 2019 Copyright</p>
+	  <p>Contact information: <a href="mailto:someone@example.com">taxiestimate@devops.com</a>.</p>
+	</footer>
 </body>
 <script type="text/javascript" src="assets/js/index.js"></script>
 </html>

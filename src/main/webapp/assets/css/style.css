@@ -1,5 +1,5 @@
 body {
-	background-size: cover;
+	background-size: 1298px,1500px;
 	background-repeat: no-repeat;
 }
 h1,p,.divc {
@@ -29,14 +29,24 @@ label {
   margin-top: 30px;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
+  margin-bottom: 40px;
 }
 .button:hover {
-  background-color: #ffff00;
+  background-color: #ffdf00;
   color: black;
 }
 .output_div {
 	color: #ffffff;
 }
 .price {
-	color: #ffffff;
-} 
+	color: #66ff33;
+}
+.container {
+	padding-bottom: 50px;
+}
+footer {
+  background-color: #000;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
